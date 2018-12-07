@@ -11,11 +11,11 @@ Bill.destroy_all
 
 require 'faker'
 
-Apartment.create(name: 'Our Apartment', address: '50 Murray Street, New York, NY, 10007', lease_start: Faker::Date.backward(14), lease_end: Faker::Date.forward(23), landlord_name: 'Jimothy Ganoosh', landlord_contact: Faker::PhoneNumber.cell_phone, events: 'Holiday Party on December 22nd, Friend from out of town staying on Dec 15th', necessities: 'Paper Towels, Hand Soap, Swiffer, Garbage Bags', chores: 'Empty dishwasher, Clean the toilet, Swiffer the Floor')
+Apartment.create(name: 'Our Apartment', address: '50 Murray Street, New York, NY, 10007', lease_start: Faker::Date.backward(14), lease_end: Faker::Date.forward(23), landlord_name: 'Jimothy Ganoosh', landlord_contact: Faker::PhoneNumber.cell_phone, events: 'Holiday Party on December 22nd, Friend from out of town staying on Dec 15th', necessities: 'Paper Towels, Hand Soap, Swiffer, Garbage Bags', chores: 'Empty dishwasher')
 
-User.create(name: 'Ali Jane', admin: true, apartment_id: Apartment.all.sample.id, image: Faker::Fillmurray.image, associates: 'boyfriend, mom')
-User.create(name: 'Jackie Chan', admin: false, apartment_id: Apartment.all.sample.id, image: Faker::Fillmurray.image, associates: 'girlfriend, daddy')
-User.create(name: 'Tiny Fey', admin: false, apartment_id: Apartment.all.sample.id, image: Faker::Fillmurray.image, associates: 'boyfriend, mom')
+User.create(name: 'Ali Jane', admin: true, apartment_id: Apartment.all.sample.id, image: "https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/16266299_10154806646772605_1313968590424988817_n.jpg?_nc_cat=103&_nc_ht=scontent-lga3-1.xx&oh=e6c86b123c35767f2e7cbe0ed7ff4589&oe=5CA705A7", associates: 'Boyfriend, Mom')
+User.create(name: 'Jackie Chan', admin: false, apartment_id: Apartment.all.sample.id, image: "http://www.gstatic.com/tv/thumb/persons/28555/28555_v9_ba.jpg", associates: 'Girlfriend, Daddy')
+User.create(name: 'Tiny Fey', admin: false, apartment_id: Apartment.all.sample.id, image: "https://www.lifenews.com/wp-content/uploads/2013/10/tinafey.jpg", associates: 'Hubby, Lorne Michaels')
 
 
 Bill.create(name: "electricity", amount: 150.00, apartment_id: Apartment.all.sample.id, image: 'https://cdn1.iconfinder.com/data/icons/energy-and-environment/24/388-512.png')
