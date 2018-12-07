@@ -11,26 +11,15 @@ Bill.destroy_all
 
 require 'faker'
 
-5.times do
-  Apartment.create(name: Faker::Movies::LordOfTheRings.location, address: Faker::TvShows::GameOfThrones.city, lease_start: Faker::Date.backward(14), lease_end: Faker::Date.forward(23), landlord_name: Faker::TvShows::GameOfThrones.character, landlord_contact: Faker::PhoneNumber.cell_phone, events: Faker::Football.competition, necessities: Faker::Food.ingredient, chores: Faker::Company.bs)
-end
+Apartment.create(name: 'Our Apartment', address: '50 Murray Street, New York, NY, 10007', lease_start: Faker::Date.backward(14), lease_end: Faker::Date.forward(23), landlord_name: 'Jimothy Ganoosh', landlord_contact: Faker::PhoneNumber.cell_phone, events: 'Holiday Party on December 22nd, Friend from out of town staying on Dec 15th', necessities: 'Paper Towels, Hand Soap, Swiffer, Garbage Bags', chores: 'Empty dishwasher, Clean the toilet, Swiffer the Floor')
 
-3.times do
-  User.create(name: Faker::TvShows::GameOfThrones.character, admin: true, apartment_id: Apartment.all.sample.id, image: Faker::Fillmurray.image, associates: Faker::GreekPhilosophers.name)
-end
+User.create(name: 'Ali Jane', admin: true, apartment_id: Apartment.all.sample.id, image: Faker::Fillmurray.image, associates: 'boyfriend, mom')
+User.create(name: 'Jackie Chan', admin: false, apartment_id: Apartment.all.sample.id, image: Faker::Fillmurray.image, associates: 'girlfriend, daddy')
+User.create(name: 'Tiny Fey', admin: false, apartment_id: Apartment.all.sample.id, image: Faker::Fillmurray.image, associates: 'boyfriend, mom')
 
-7.times do
-  User.create(name: Faker::TvShows::GameOfThrones.character, admin: false, apartment_id: Apartment.all.sample.id, image: Faker::Fillmurray.image, associates: Faker::GreekPhilosophers.name)
-end
 
-5.times do
-  Bill.create(name: "electricity", amount: 150.00, apartment_id: Apartment.all.sample.id, image: Faker::Currency.symbol)
-end
+Bill.create(name: "electricity", amount: 150.00, apartment_id: Apartment.all.sample.id, image: 'https://cdn1.iconfinder.com/data/icons/energy-and-environment/24/388-512.png')
 
-5.times do
-  Bill.create(name: "gas", amount: 125.00, apartment_id: Apartment.all.sample.id, image: Faker::Currency.symbol)
-end
+Bill.create(name: "gas", amount: 125.00, apartment_id: Apartment.all.sample.id, image: 'https://img.icons8.com/metro/1600/gas.png')
 
-5.times do
-  Bill.create(name: "rent", amount: 2500.00, apartment_id: Apartment.all.sample.id, image: Faker::Currency.symbol)
-end
+Bill.create(name: "rent", amount: 2500.00, apartment_id: Apartment.all.sample.id, image: 'data:image/png;base64,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')
