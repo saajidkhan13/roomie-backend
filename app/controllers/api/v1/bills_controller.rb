@@ -19,11 +19,11 @@ class Api::V1::BillsController < ApplicationController
   private
 
   def bill_params
-    params.require(:bill).permit(:amount, :apartment_id, :image)
+    params.require(:bill).permit(:amount, :apartment_id, :image, :name)
   end
 
   def find_bill
-    @bill = Apartment.find(params[:id])
+    @bill = Bill.find(params[:id])
   end
 
 end
